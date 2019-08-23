@@ -1,16 +1,40 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CharacterCard from "./CharacterCard";
+import FlexContainer from 'react-styled-flexbox';
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
-
+function CharacterList() {
+  const [character, setCharacter] = useState([]);
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+    axios
+      .get("https://rickandmortyapi.com/api/character", {
+        params: {}
+      })
+      .then(response => {
+        const character = response.data.results;
+        console.log("Character:", character);
+        setCharacter(character);
+      });
   }, []);
 
   return (
-    <section className="character-list grid-view">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
+    <FlexContainer wrapWrap = {true} justifySpaceAround = {true}>
+{character.map(character => {
+          return (
+            
+            <CharacterCard
+              key = {character.created}
+              name= {character.name}
+              image = {character.image}
+              gender = {character.gender}
+              species = {character.species}
+              status = {character.status}
+
+            />
+          );
+        })}
+        
+    </FlexContainer>
+)
 }
+export default CharacterList;

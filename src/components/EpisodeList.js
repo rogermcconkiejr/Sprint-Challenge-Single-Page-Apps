@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import LocationCard from "./LocationCard";
+import EpisodeCard from "./EpisodeCard";
 import FlexContainer from 'react-styled-flexbox';
 
 
-function LocationsList() {
+function EpisodeList() {
     const [character, setCharacter] = useState([]);
     useEffect(() => {
       axios
-        .get("https://rickandmortyapi.com/api/location", {
+        .get("https://rickandmortyapi.com/api/episode", {
           params: {}
         })
         .then(response => {
           const character = response.data.results;
-          console.log("Location:", character);
+          console.log("Episode:", character);
           setCharacter(character);
         });
     }, []);
@@ -22,12 +22,11 @@ function LocationsList() {
     {character.map(character => {
               return (
                 
-                <LocationCard
+                <EpisodeCard
                   key = {character.created}
                   name= {character.name}
-                  dimension={character.dimension}
-                  type= {character.type}
-                  residents = {character.residents}
+                  episode= {character.episode}
+                  air_date= {character.air_date}
                 />
               );
             })}
@@ -36,4 +35,4 @@ function LocationsList() {
     )
   }
   
-  export default LocationsList;
+  export default EpisodeList;

@@ -19,20 +19,18 @@ font-family: 'Anton', sans-serif;
 color:grey;
 `;
 
-const CharacterCard = props => {
+const EpisodeCard = props => {
     return (
      
         <Box>
           
-            <TitleAttys>Character Name: {props.name}</TitleAttys>
-            <img src={props.image} alt="A character in Rick and Morty" /> 
-            <BoxAttys>Gender: {props.gender}</BoxAttys>
-            <BoxAttys>Species: {props.species}</BoxAttys>
-            <BoxAttys>Status: {props.status}</BoxAttys>
+            <TitleAttys>Episode Name: {props.name}</TitleAttys>
+            <BoxAttys>Episode Number: {props.episode}</BoxAttys>
+            <BoxAttys>Air Date: {props.air_date}</BoxAttys>
           
         </Box>
      
     );
   };
   
-  export default CharacterCard;
+  export default EpisodeCard;
