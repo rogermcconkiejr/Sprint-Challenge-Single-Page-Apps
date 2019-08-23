@@ -13,7 +13,7 @@ function LocationsList() {
         })
         .then(response => {
           const character = response.data.results;
-          console.log("Character:", character);
+          console.log("Location:", character);
           setCharacter(character);
         });
     }, []);
@@ -27,7 +27,7 @@ function LocationsList() {
                   name= {character.name}
                   dimension={character.dimension}
                   type= {character.type}
-
+                  residents = {character.residents}
                 />
               );
             })}

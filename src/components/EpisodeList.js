@@ -13,7 +13,7 @@ function EpisodeList() {
         })
         .then(response => {
           const character = response.data.results;
-          console.log("Character:", character);
+          console.log("Episode:", character);
           setCharacter(character);
         });
     }, []);

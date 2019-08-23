@@ -27,6 +27,8 @@ const LocationCard = props => {
             <TitleAttys>Location: {props.name}</TitleAttys>     
             <BoxAttys>Dimension: {props.dimension}</BoxAttys>
             <BoxAttys>Type: {props.type}</BoxAttys>
+            <BoxAttys>Residents: {props.residents.length}</BoxAttys>
+
 
           
         </Box>
